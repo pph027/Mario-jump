@@ -1,10 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.game-board{
+.game-board {
     width: 80%;
     height: 500px;
     border: 1px solid #333;
@@ -27,21 +27,21 @@
 }
 
 .jump {
-     animation: pipe-animation 500ms ease-out;
+    animation: jump 500ms ease-out;
 }
 
-@keyframes pipe-animation{
-    from{
+@keyframes pipe-animation {
+    from {
         right: -80px;
     }
-    
-    to{
+
+    to {
         right: 100%;
     }
 }
 
 @keyframes jump {
-    0%{
+    0% {
         bottom: 0;
     }
 
