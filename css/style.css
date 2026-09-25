@@ -1,4 +1,4 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -17,18 +17,17 @@
     position: absolute;
     bottom: 0;
     width: 80px;
-    left: 120px;
-    animation: pipe-animation 2s infinite linear;
+    animation: pipe-animation 1.5s infinite linear;
 }
 
 .mario {
     width: 150px;
     position: absolute;
-    bottom: 80px;
+    bottom: 0;
 }
 
 .jump {
-     animation: pipe-animation 1.5s ease-out;
+     animation: pipe-animation 500ms ease-out;
 }
 
 @keyframes pipe-animation{
