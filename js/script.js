@@ -2,6 +2,11 @@ const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
 
 const jump = () => {
+
+    if (mario.classList.contains('jump')) {
+        return;
+    }
+
     mario.classList.add('jump');
 
     setTimeout(() => {
