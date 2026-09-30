@@ -1,76 +1,44 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+const mario = document.querySelector('.mario');
+const pipe = document.querySelector('.pipe');
 
-.game-board {
-    width: 100%;
-    height: 500px;
-    border-bottom: 15px solid rgb(35, 160, 35);
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(#87CEEB, #E0F6FF);
-}
+const jump = () => {
 
-.pipe {
-    position: absolute;
-    bottom: 0;
-    width: 80px;
-    animation: pipe-animation 1.8s infinite linear;
-}
-
-.mario {
-    width: 150px;
-    position: absolute;
-    bottom: 0;
-}
-
-.jump {
-    animation: jump 600ms ease-out;
-}
-
-.clouds {
-    position: absolute;
-    width: 550px;
-    animation: clouds-animation 20s infinite linear;
-}
-
-@keyframes pipe-animation {
-    from {
-        right: -80px;
+    if (mario.classList.contains('jump')) {
+        return;
     }
 
-    to {
-        right: 100%;
-    }
+    mario.classList.add('jump');
+
+    setTimeout(() => {
+        mario.classList.remove('jump');
+    }, 500);
 }
 
-@keyframes jump {
-    0% {
-        bottom: 0;
+const loop = setInterval(() => {
+
+    console.log('loop')
+
+    const pipePosition = pipe.offsetLeft;
+    const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
+
+    console.log(marioPosition);
+    
+    if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
+
+        pipe.style.animation = 'none';
+        pipe.style.left = ${pipePosition}px;
+
+        mario.style.animation = 'none';
+        mario.style.left = ${marioPosition}px;
+
+        mario.src = './imagens/game-over.png';
+        mario.style.width = '75px'
+        mario.style.marginLeft = '50px'
+
+        clearInterval(loop);
+
     }
 
-    25% {
-        bottom: 220px;
-    }
+}, 10);
 
-    65% {
-        bottom: 220px;
-    }
-
-    100% {
-        bottom: 0;
-    }
-}
-
-@keyframes clouds-animation {
-    from {
-        right: -550px;
-    }
-
-    to {
-        right: 100%;
-    }
-}
+document.addEventListener('keydown', jump);
