@@ -28,7 +28,7 @@
 }
 
 .jump {
-    animation: jump 500ms ease-out;
+    animation: jump 700ms ease-out;
 }
 
 .clouds {
@@ -53,15 +53,15 @@
     }
 
     40% {
-        bottom: 180px;
+        bottom: 220px;
     }
 
     50% {
-        bottom: 180px;
+        bottom: 220px;
     }
 
     60% {
-        bottom: 180px;
+        bottom: 220px;
     }
 
     100% {
@@ -70,11 +70,11 @@
 }
 
 @keyframes clouds-animation {
-from {
-    right: -550px;
-}
+    from {
+        right: -550px;
+    }
 
-to {
-    right: 100%
-}
+    to {
+        right: 100%;
+    }
 }
