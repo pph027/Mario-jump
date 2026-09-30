@@ -11,14 +11,17 @@ const jump = () => {
 
     setTimeout(() => {
         mario.classList.remove('jump');
-    }, 700);
+    }, 1000);
 }
 
 const loop = setInterval(() => {
 
     const pipePosition = pipe.offsetLeft;
-    const marioPosition = +window.getComputedStyle(mario)
-        .bottom.replace('px', '');
+
+    const marioPosition = +window
+        .getComputedStyle(mario)
+        .bottom
+        .replace('px', '');
 
     if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
 
@@ -29,6 +32,7 @@ const loop = setInterval(() => {
         mario.style.bottom = `${marioPosition}px`;
 
         mario.src = './imagens/game-over.png';
+
         mario.style.width = '75px';
         mario.style.marginLeft = '50px';
 
