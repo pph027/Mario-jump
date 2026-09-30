@@ -1,18 +1,4 @@
-<!DOCTYPE html>  <html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <link rel="stylesheet" href="./css/style.css">  
-<script src="./js/script.js" defer></script>  
-
-<title>Mario Jump</title>
-
-</head>  
-<body>  <div class="game-board">  <img src="./imagens/clouds.png" class="clouds">  
-<img src="./imagens/mario.gif" class="mario">  
-<img src="./imagens/pipe.png" class="pipe">  </div>  </body>  
-</html>  o de cima é o HTML
-
-const mario = document.querySelector('.mario');
+ const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
 
 const jump = () => {
