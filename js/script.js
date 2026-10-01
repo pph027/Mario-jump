@@ -3,9 +3,10 @@ const pipe = document.querySelector('.pipe');
 const scoreElement = document.querySelector('.score');
 
 let score = 0;
-let pipePassed = false;
+let counted = false;
 
-function jump() {
+
+const jump = () => {
 
     if (mario.classList.contains('jump')) {
         return;
@@ -16,38 +17,42 @@ function jump() {
     setTimeout(() => {
         mario.classList.remove('jump');
     }, 700);
-}
+};
+
 
 document.addEventListener('keydown', jump);
+
 document.addEventListener('touchstart', jump);
 
 
 const loop = setInterval(() => {
 
-    const pipePosition = pipe.getBoundingClientRect().left;
-    const marioPosition = mario.getBoundingClientRect().bottom;
+    const pipePosition = pipe.offsetLeft;
 
-    // CONTADOR
-    if (pipePosition < 0 && !pipePassed) {
+    const marioPosition = +window
+        .getComputedStyle(mario)
+        .bottom
+        .replace('px', '');
+
+    if (pipePosition < 0 && !counted) {
 
         score++;
 
         scoreElement.innerText = `Tubos: ${score}`;
 
-        pipePassed = true;
-    }
-
-    // Quando o tubo volta para o começo
-    if (pipePosition > window.innerWidth) {
-        pipePassed = false;
+        counted = true;
     }
 
 
-    // COLISÃO
+    if (pipePosition > 200) {
+        counted = false;
+    }
+
+
     if (
         pipePosition <= 120 &&
         pipePosition > 0 &&
-        marioPosition > window.innerHeight - 100
+        marioPosition < 80
     ) {
 
         pipe.style.animation = 'none';
@@ -56,7 +61,9 @@ const loop = setInterval(() => {
         mario.style.animation = 'none';
 
         mario.src = './imagens/game-over.png';
+
         mario.style.width = '75px';
+        mario.style.marginLeft = '50px';
 
         clearInterval(loop);
     }
